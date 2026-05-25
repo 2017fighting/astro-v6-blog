@@ -20,6 +20,9 @@ import { rehypeMermaid } from "./src/utils/rehype/beautiful-mermaid";
 
 export default defineConfig({
   site: config.site.url,
+  // build:{
+  //   assetsPrefix:
+  // },
   integrations: [
     mdx(),
     sitemap({
