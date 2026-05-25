@@ -46,10 +46,15 @@ jobs:
       - name: Sync _astro to R2
         run: |
           bun run upload:assets
+      - name: Sync pagefind to R2
+        run: |
+          bun run upload:pagefind
 
       # 删除本地 assets
       - name: Remove local _astro
         run: bun run clean:assets
+      - name: Remove local pagefind
+        run: bun run clean:pagefind
 
       # 部署 Pages
       - name: Deploy to Pages
