@@ -1,0 +1,60 @@
+name: Deploy Blog
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install deps
+        run: bun install
+
+      # 安装 rclone
+      - name: Install rclone
+        run: curl https://rclone.org/install.sh | sudo bash
+
+      # 配置 rclone
+      - name: Configure rclone
+        run: |
+          mkdir -p ~/.config/rclone
+
+          cat > ~/.config/rclone/rclone.conf <<EOF
+          [r2]
+          type = s3
+          provider = Cloudflare
+          access_key_id = ${{ secrets.R2_ACCESS_KEY_ID }}
+          secret_access_key = ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          endpoint = https://${{ secrets.CF_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          acl = private
+          no_check_bucket = true
+          EOF
+
+      - name: Build Astro
+        run: bun run build
+
+      # 上传 Astro assets
+      - name: Sync _astro to R2
+        run: |
+          bun run upload:assets
+
+      # 删除本地 assets
+      - name: Remove local _astro
+        run: bun run clean:assets
+
+      # 部署 Pages
+      - name: Deploy to Pages
+        run: |
+          bun run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}

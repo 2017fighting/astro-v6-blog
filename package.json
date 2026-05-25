@@ -14,7 +14,10 @@
     "format:check": "prettier --check .",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "upload": "rclone copy -v dist/_astro r2:blog-assets/_astro --fast-list --checksum --transfers 8"
+    "upload:assets": "rclone copy -v dist/_astro r2:blog-assets/_astro --fast-list --checksum --transfers 8",
+    "clean:assets": "rm -rf dist/_astro",
+    "deploy": "wrangler pages deploy dist --project-name=astro-paper",
+    "release": "bun run build && bun run upload:assets && bun run clean:assets && bun run deploy"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.6",
