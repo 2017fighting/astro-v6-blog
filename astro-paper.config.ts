@@ -3,8 +3,8 @@ import { defineAstroPaperConfig } from "./src/types/config";
 export default defineAstroPaperConfig({
   site: {
     url: "https://www.raenzo.com/",
-    title: "AstroPaper",
-    description: "A minimal, responsive and SEO-friendly Astro blog theme.",
+    title: "空雨集",
+    description: "写写折腾背后的思考",
     author: "Ryan Valor",
     profile: "https://satna.ing",
     ogImage: "default-og.jpg",
