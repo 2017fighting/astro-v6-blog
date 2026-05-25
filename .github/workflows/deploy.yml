@@ -13,12 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-
-      - name: Install deps
-        run: bun install
-
       # 安装 rclone
       - name: Install rclone
         run: curl https://rclone.org/install.sh | sudo bash
@@ -38,6 +32,12 @@ jobs:
           acl = private
           no_check_bucket = true
           EOF
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install deps
+        run: bun install
 
       - name: Build Astro
         run: bun run build
