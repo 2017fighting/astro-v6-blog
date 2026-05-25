@@ -61,7 +61,7 @@ export default defineConfig({
   },
   fonts: [
     {
-      name: "Google Sans Code",
+      name: "Noto Sans SC",
       cssVariable: "--font-google-sans-code",
       provider: fontProviders.google(),
       fallbacks: ["monospace"],
