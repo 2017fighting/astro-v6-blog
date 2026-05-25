@@ -29,7 +29,10 @@
     "satori": "^0.26.0",
     "sharp": "^0.34.5",
     "slugify": "^1.6.9",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.0",
+    "hast-util-from-html-isomorphic": "^2.0.0",
+    "hast-util-to-string": "^3.0.0",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
