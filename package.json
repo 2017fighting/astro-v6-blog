@@ -14,7 +14,7 @@
     "format:check": "prettier --check .",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "upload": "rclone sync -v dist/_astro r2:blog-assets/_astro"
+    "upload": "rclone copy -v dist/_astro r2:blog-assets/_astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.6",
