@@ -1,9 +1,90 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
-    <path d="M50.4 78.5a75.1 75.1 0 0 0-28.5 6.9l24.2-65.7c.7-2 1.9-3.2 3.4-3.2h29c1.5 0 2.7 1.2 3.4 3.2l24.2 65.7s-11.6-7-28.5-7L67 45.5c-.4-1.7-1.6-2.8-2.9-2.8-1.3 0-2.5 1.1-2.9 2.7L50.4 78.5Zm-1.1 28.2Zm-4.2-20.2c-2 6.6-.6 15.8 4.2 20.2a17.5 17.5 0 0 1 .2-.7 5.5 5.5 0 0 1 5.7-4.5c2.8.1 4.3 1.5 4.7 4.7.2 1.1.2 2.3.2 3.5v.4c0 2.7.7 5.2 2.2 7.4a13 13 0 0 0 5.7 4.9v-.3l-.2-.3c-1.8-5.6-.5-9.5 4.4-12.8l1.5-1a73 73 0 0 0 3.2-2.2 16 16 0 0 0 6.8-11.4c.3-2 .1-4-.6-6l-.8.6-1.6 1a37 37 0 0 1-22.4 2.7c-5-.7-9.7-2-13.2-6.2Z" />
-    <style>
-        path { fill: #000; }
-        @media (prefers-color-scheme: dark) {
-            path { fill: #FFF; }
-        }
-    </style>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="512" height="512" rx="96" fill="white"/>
+
+  <!-- Outer rounded rectangle -->
+  <rect
+    x="96"
+    y="96"
+    width="320"
+    height="320"
+    rx="56"
+    stroke="black"
+    stroke-width="8"
+    fill="none"
+  />
+
+  <!-- Rain -->
+  <line
+    x1="220"
+    y1="185"
+    x2="220"
+    y2="245"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+
+  <line
+    x1="276"
+    y1="210"
+    x2="276"
+    y2="290"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+
+  <line
+    x1="330"
+    y1="160"
+    x2="330"
+    y2="225"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+
+  <line
+    x1="330"
+    y1="248"
+    x2="330"
+    y2="268"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+
+  <!-- Hills -->
+  <path
+    d="M130 310
+       Q180 255 230 310
+       Q280 260 330 310
+       Q365 285 390 310"
+    stroke="black"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <!-- Terminal prompt -->
+  <path
+    d="M205 355 L225 375 L205 395"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <line
+    x1="245"
+    y1="392"
+    x2="275"
+    y2="392"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
 </svg>
