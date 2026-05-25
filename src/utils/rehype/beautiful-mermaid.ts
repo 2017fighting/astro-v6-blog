@@ -68,7 +68,8 @@ export const rehypeMermaid: Plugin<[RehypeMermaidOptions?], Root> = (
           fg: "var(--foreground)",
           line: "var(--border)",
           muted: "var(--muted-foreground)",
-          // font: "FiraCode",
+          font: "var(--font-sans)",
+          monoFont: "var(--font-mono)",
           // transparent: true,
         });
     } catch {
