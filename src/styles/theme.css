@@ -20,6 +20,7 @@
   --muted: #e6e6e6;
   --muted-foreground: #6b7280;
   --border: #ece9e9;
+  --surface: #ccd0da;
 }
 
 /* Dark theme values */
@@ -31,4 +32,6 @@
   --muted: #343f60;
   --muted-foreground: #afb9ca;
   --border: #ab4b08;
+  /* used for mermaid:surface0 */
+  --surface: #313244;
 }

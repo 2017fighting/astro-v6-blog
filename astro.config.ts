@@ -16,6 +16,7 @@ import {
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import config from "./astro-paper.config";
+import { rehypeMermaid } from "./src/utils/rehype/beautiful-mermaid";
 
 export default defineConfig({
   site: config.site.url,
@@ -34,6 +35,11 @@ export default defineConfig({
     },
   },
   markdown: {
+    syntaxHighlight: {
+      type: "shiki",
+      excludeLangs: ["mermaid"],
+    },
+    rehypePlugins: [[rehypeMermaid, { className: "astro-code" }]],
     remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
     shikiConfig: {
       themes: { light: "min-light", dark: "night-owl" },
