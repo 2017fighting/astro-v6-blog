@@ -18,7 +18,6 @@ import type { Root, Element, ElementContent } from "hast";
 import { visit } from "unist-util-visit";
 import { toString as hastToString } from "hast-util-to-string";
 import { fromHtmlIsomorphic } from "hast-util-from-html-isomorphic";
-import type { ThemeName } from "beautiful-mermaid";
 
 export interface RehypeMermaidOptions {
   /**
