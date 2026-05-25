@@ -56,25 +56,21 @@ export const rehypeMermaid: Plugin<[RehypeMermaidOptions?], Root> = (
     type RenderFn = (code: string) => string;
     let renderFn: RenderFn | null = null;
 
-    try {
-      const nativeImport = new Function("s", "return import(s)") as (
-        s: string
-      ) => Promise<typeof import("beautiful-mermaid")>;
-      const mod = await nativeImport("beautiful-mermaid");
+    const nativeImport = new Function("s", "return import(s)") as (
+      s: string
+    ) => Promise<typeof import("beautiful-mermaid")>;
+    const mod = await nativeImport("beautiful-mermaid");
 
-      renderFn = code =>
-        mod.renderMermaidSVG(code, {
-          bg: "var(--background)",
-          fg: "var(--foreground)",
-          line: "var(--border)",
-          muted: "var(--muted-foreground)",
-          font: "var(--font-sans)",
-          monoFont: "var(--font-mono)",
-          // transparent: true,
-        });
-    } catch {
-      return;
-    }
+    renderFn = code =>
+      mod.renderMermaidSVG(code, {
+        bg: "var(--background)",
+        fg: "var(--foreground)",
+        line: "var(--border)",
+        muted: "var(--muted-foreground)",
+        font: "var(--font-sans)",
+        monoFont: "var(--font-mono)",
+        // transparent: true,
+      });
 
     for (const { node, index, parent } of nodes.reverse()) {
       const code = hastToString(node.children[0] as Element).trim();
