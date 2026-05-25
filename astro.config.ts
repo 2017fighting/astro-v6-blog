@@ -45,7 +45,7 @@ export default defineConfig({
       [remarkCollapse, { test: "目录", summary: "点击展开" }],
     ],
     shikiConfig: {
-      themes: { light: "min-light", dark: "night-owl" },
+      themes: { light: "catppuccin-latte", dark: "catppuccin-mocha" },
       defaultColor: false,
       wrap: false,
       transformers: [

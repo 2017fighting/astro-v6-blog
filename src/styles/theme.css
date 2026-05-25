@@ -13,25 +13,32 @@
 /* Light theme values */
 :root,
 [data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --accent-foreground: #ffffff;
-  --muted: #e6e6e6;
-  --muted-foreground: #6b7280;
-  --border: #ece9e9;
+  --background: #eff1f5;
+  --foreground: #4c4f69;
+  --accent: #40a02b;
+  --accent-foreground: #eff1f5;
+  --muted: #9ca0b0;
+  --muted-foreground: #5c5f77;
+  --border: #7287fd;
   --surface: #ccd0da;
 }
 
 /* Dark theme values */
 [data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --accent-foreground: #ffffff;
-  --muted: #343f60;
-  --muted-foreground: #afb9ca;
-  --border: #ab4b08;
+  /* main background:base */
+  --background: #1e1e2e;
+  /* text color:text */
+  --foreground: #cdd6f4;
+  /* link&hover:green */
+  --accent: #a6e3a1;
+  /* selected text color:base */
+  --accent-foreground: #1e1e2e;
+  /* cards&tags&hover stats background color:surface0 */
+  --muted: #313244;
+  /* text:subtext1 */
+  --muted-foreground: #bac2de;
+  /* Lavender */
+  --border: #b4befe;
   /* used for mermaid:surface0 */
   --surface: #313244;
 }
