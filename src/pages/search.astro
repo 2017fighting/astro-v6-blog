@@ -25,6 +25,7 @@ const backUrl = config.features.showBackButton
 const pagefindBundlePath = getAssetPath("pagefind/");
 
 const t = useTranslations(locale);
+const siteUrl = config.site.url;
 ---
 
 <Layout title={`${t.pages.searchTitle} | ${config.site.title}`}>
@@ -38,6 +39,7 @@ const t = useTranslations(locale);
       transition:persist
       data-backurl={backUrl}
       data-bundle-path={pagefindBundlePath}
+      data-base-url={siteUrl}
     >
     </div>
   </Main>
@@ -77,6 +79,7 @@ const t = useTranslations(locale);
       const search = new PagefindUI({
         element: "#pagefind-search",
         bundlePath,
+        baseUrl: pageFindSearch?.dataset?.baseUrl ?? "/",
         showImages: false,
         showSubResults: true,
         processTerm: function (term: string) {
