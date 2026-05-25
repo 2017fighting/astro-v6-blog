@@ -20,6 +20,7 @@ import { rehypeMermaid } from "./src/utils/rehype/beautiful-mermaid";
 
 export default defineConfig({
   site: config.site.url,
+  trailingSlash: "never",
   build: {
     assetsPrefix: "https://assets.raenzo.com",
   },

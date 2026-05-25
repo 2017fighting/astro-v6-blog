@@ -1,37 +1,30 @@
 ---
-title: "About"
-description: "A bit about me and this blog."
+title: "关于"
+description: "写写折腾背后的思考。"
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+## 关于我
 
-![Astro Paper](@/assets/images/astropaper-og.jpg)
+- 死宅，轻度二次元
+- `vim`重度使用者
+- homelab重度玩家（自认为
+- ~~讨厌Vibe Coding~~
+- 类原生Android系统的拥护者(注：主力系统早已转到iOS)
+- 任天堂TM的就是世界的主宰！
+- 任何地方都要使用[Catppuccin](https://catppuccin.com/)主题
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+## 关于本站
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+- 框架：[Astro](https://astro.build/)
+- 模版：[AstroPaper](https://astro-paper.pages.dev/)
+- 托管：Cloudflare Pages
+- 图片：github存储原始图片，构建后的assets存储在cloudflare R2
+- mermaid渲染：[beautiful-mermaid](https://github.com/lukilabs/beautiful-mermaid)
 
-## Features
+## 为什么开设本站
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+罪魁祸首还是入坑NAS，机器换了一堆，系统架构也是一换再换，其中参考了不少大神的方案，当然也有自己的思考，于是想找个地方分享下。
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+首先肯定是要静态博客，但是框架选了半天，最开始想用`hugo`，无奈它对`mermaid`的支持不那么“原生”；后来了解到`Astro`，可以通过`rehype-mermaid`将mermaid渲染成图片，但是依赖chormium，又太重了，之后就一直搁置了。
 
-and so much more.
-
-## Show your support
-
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
-
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
-
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
-
-Kyay zuu! 🙏🏼
+再之后，偶然间了解到了[beautiful-mermaid](https://github.com/lukilabs/beautiful-mermaid)这个库，可以不依赖chormium，直接将mermaid渲染成svg，简直是完美，于是博客又被我提上了日程。
