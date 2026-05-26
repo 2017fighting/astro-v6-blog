@@ -14,6 +14,7 @@ import BackButton from "./_components/BackButton.astro";
 import BackToTopButton from "./_components/BackToTopButton.astro";
 import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
 import config from "@/config";
+import Comments from "@/components/Comments";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -153,9 +154,9 @@ const ogImage = ogImageUrl
     </ul>
 
     <ShareLinks />
+    <Comments client:only="react" />
 
     <hr class="my-8 border-dashed" />
-
     <AdjacentPostNav {prevPost} {nextPost} />
   </main>
   <Footer />

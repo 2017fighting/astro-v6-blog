@@ -18,6 +18,8 @@ import { transformerFileName } from "./src/utils/transformers/fileName";
 import config from "./astro-paper.config";
 import { rehypeMermaid } from "./src/utils/rehype/beautiful-mermaid";
 
+import react from "@astrojs/react";
+
 export default defineConfig({
   site: config.site.url,
   trailingSlash: "never",
@@ -30,6 +32,7 @@ export default defineConfig({
       filter: page =>
         config.features?.showArchives !== false || !page.endsWith("/archives/"),
     }),
+    react(),
   ],
   i18n: {
     locales: ["en", "zh-CN"],

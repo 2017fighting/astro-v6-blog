@@ -138,17 +138,26 @@ const rssHref = getRelativeLocaleUrl(
       function setup() {
         const show = () => document.body.classList.add(CLASS);
 
-        const isInternalLink = (el) => {
+        const isInternalLink = el => {
           if (!el) return false;
           const href = el.getAttribute("href");
-          if (!href || el.hasAttribute("data-no-wait-cursor") || el.target === "_blank"
-            || ["mailto:", "tel:", "javascript:"].some(p => href.startsWith(p))
-            || href.startsWith("#") || el.hasAttribute("download")) return false;
-          try { return new URL(href, location.href).hostname === location.hostname; }
-          catch { return false; }
+          if (
+            !href ||
+            el.hasAttribute("data-no-wait-cursor") ||
+            el.target === "_blank" ||
+            ["mailto:", "tel:", "javascript:"].some(p => href.startsWith(p)) ||
+            href.startsWith("#") ||
+            el.hasAttribute("download")
+          )
+            return false;
+          try {
+            return new URL(href, location.href).hostname === location.hostname;
+          } catch {
+            return false;
+          }
         };
 
-        const onClick = (e) => {
+        const onClick = e => {
           if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
           const a = e.target.closest("a[href]");
           if (isInternalLink(a)) show();

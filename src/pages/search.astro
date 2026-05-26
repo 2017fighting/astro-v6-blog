@@ -101,7 +101,9 @@ const siteUrl = config.site.url;
       }
 
       // Auto-focus the search input
-      const input = document.querySelector<HTMLInputElement>(".pagefind-ui__search-input");
+      const input = document.querySelector<HTMLInputElement>(
+        ".pagefind-ui__search-input"
+      );
       input?.focus();
 
       // Reset search param if search input is cleared
