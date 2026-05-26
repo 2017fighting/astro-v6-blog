@@ -1,7 +1,7 @@
 ---
 author: 2x
 pubDatetime: 2022-09-23T15:22:00Z
-modDatetime: 2026-05-17T04:47:08.212Z
+modDatetime: 2026-05-17T04:47:08Z
 title: 网站全面升级为纯Svelte！好处都有啥？都踩了哪些坑？
 slug: astro-to-svelte
 featured: true

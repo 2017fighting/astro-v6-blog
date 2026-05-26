@@ -1,5 +1,5 @@
 ---
-pubDatetime: 2026-05-17T07:15:45.792Z
+pubDatetime: 2026-05-17T07:15:45Z
 title: AstroPaper 6.0
 slug: astro-paper-v6
 featured: true
