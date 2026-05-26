@@ -9,7 +9,9 @@ content:
     label: 文章
     type: collection
     path: src/content/posts
-    filename: "{primary}.mdx"
+    filename:
+      template: "{primary}.md"
+      field: create
     format: yaml-frontmatter
     subfolders: true
     fields:
