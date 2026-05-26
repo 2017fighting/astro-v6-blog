@@ -1,0 +1,40 @@
+media:
+  - name: Images
+    input: src/assets/images
+    output: "@/assets/images"
+    categories: [image]
+    rename: safe
+content:
+  - name: posts
+    label: 文章
+    type: collection
+    path: src/content/posts
+    filename: "{primary}.mdx"
+    format: yaml-frontmatter
+    subfolders: true
+    fields:
+      - name: slug
+        type: string
+      - name: title
+        type: string
+      - name: description
+        type: text
+      - name: pubDatetime
+        type: date
+        options:
+          time: true
+      - name: modDatetime
+        type: date
+        options:
+          time: true
+      - name: author
+        type: string
+      - name: featured
+        type: boolean
+      - name: draft
+        type: boolean
+      - name: tags
+        type: string
+        list: true
+      - name: body
+        type: rich-text
