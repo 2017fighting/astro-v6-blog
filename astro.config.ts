@@ -17,6 +17,7 @@ import {
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import config from "./astro-paper.config";
 import { rehypeMermaid } from "./src/utils/rehype/beautiful-mermaid";
+import pictureImages from "./src/utils/rehype/picture-images";
 
 import react from "@astrojs/react";
 
@@ -33,6 +34,7 @@ export default defineConfig({
         config.features?.showArchives !== false || !page.endsWith("/archives/"),
     }),
     react(),
+    pictureImages(),
   ],
   i18n: {
     locales: ["en", "zh-CN"],
