@@ -35,3 +35,8 @@
 :target {
   scroll-margin-block: 1rem;
 }
+
+.loading-cursor,
+.loading-cursor * {
+  cursor: wait !important;
+}

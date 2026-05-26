@@ -121,5 +121,49 @@ const rssHref = getRelativeLocaleUrl(
     <script>
       import "@/scripts/theme";
     </script>
+    <script is:inline>
+      const CLASS = "loading-cursor";
+      const cleanups = [];
+
+      function remove() {
+        cleanups.forEach(fn => fn());
+        cleanups.length = 0;
+      }
+
+      function add() {
+        remove();
+        cleanups.push(setup());
+      }
+
+      function setup() {
+        const show = () => document.body.classList.add(CLASS);
+
+        const isInternalLink = (el) => {
+          if (!el) return false;
+          const href = el.getAttribute("href");
+          if (!href || el.hasAttribute("data-no-wait-cursor") || el.target === "_blank"
+            || ["mailto:", "tel:", "javascript:"].some(p => href.startsWith(p))
+            || href.startsWith("#") || el.hasAttribute("download")) return false;
+          try { return new URL(href, location.href).hostname === location.hostname; }
+          catch { return false; }
+        };
+
+        const onClick = (e) => {
+          if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+          const a = e.target.closest("a[href]");
+          if (isInternalLink(a)) show();
+        };
+
+        document.addEventListener("click", onClick, true);
+        return () => {
+          document.removeEventListener("click", onClick, true);
+          document.body.classList.remove(CLASS);
+        };
+      }
+
+      add();
+      document.addEventListener("astro:after-swap", add);
+      document.addEventListener("astro:before-swap", remove);
+    </script>
   </body>
 </html>
