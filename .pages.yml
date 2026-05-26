@@ -16,25 +16,42 @@ content:
       - name: slug
         type: string
       - name: title
+        label: 标题
         type: string
       - name: description
+        label: 描述
         type: text
       - name: pubDatetime
+        label: 发布时间
         type: date
         options:
           time: true
       - name: modDatetime
+        label: 更新时间
         type: date
         options:
+          default: ""
           time: true
       - name: author
         type: string
+        label: 作者名
       - name: featured
+        label: 是否精选
         type: boolean
       - name: draft
+        label: 是否草稿
         type: boolean
       - name: tags
+        label: 标签
         type: string
         list: true
       - name: body
         type: rich-text
+    view:
+      fields: [title, pubDatetime, modDatetime, featured, draft]
+      search: [title, slug]
+      primary: slug
+      sort: [title, pubDatetime, modDatetime, featured, draft]
+      default:
+        search: pubDatetime
+        order: desc
