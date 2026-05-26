@@ -26,12 +26,14 @@ content:
         type: date
         options:
           time: true
+          format: yyyy-MM-dd'T'HH:mm:ss'Z'
       - name: modDatetime
         label: 更新时间
         type: date
         options:
           default: ""
           time: true
+          format: yyyy-MM-dd'T'HH:mm:ss'Z'
       - name: author
         type: string
         label: 作者名
