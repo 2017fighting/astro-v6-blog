@@ -12,6 +12,7 @@ description: "写写折腾背后的思考。"
 - 类原生Android系统的拥护者(注：主力系统早已转到iOS)
 - 任天堂TM的就是世界的主宰！
 - 任何地方都要使用[Catppuccin](https://catppuccin.com/)主题
+- [GPG Key](https://github.com/2017fighting.gpg)
 
 ## 关于本站
 
