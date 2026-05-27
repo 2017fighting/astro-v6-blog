@@ -1,0 +1,45 @@
+---
+import IconEye from "@/assets/icons/IconEye.svg";
+
+type Props = {
+  class?: string;
+};
+
+const { class: className = "" } = Astro.props;
+---
+
+<span
+  id="page-views"
+  class:list={[
+    "text-muted-foreground flex items-center gap-1.5",
+    className,
+  ]}
+>
+  <IconEye class="inline-block size-6 min-w-5.5 scale-90" />
+  <span class="text-sm sm:text-base" data-views-text>—</span>
+</span>
+
+<script is:inline data-astro-rerun>
+  (function () {
+    var el = document.querySelector("[data-views-text]");
+    if (!el) return;
+
+    fetch(
+      "https://track.raenzo.com/api/page-views?paths=" +
+        encodeURIComponent(location.pathname)
+    )
+      .then(function (r) {
+        return r.json();
+      })
+      .then(function (data) {
+        var info = data[location.pathname];
+        var views = (info && info.views) || 0;
+        var locale = document.documentElement.lang || "zh-CN";
+        el.textContent =
+          locale === "zh-CN" ? views + " 次阅读" : views + " views";
+      })
+      .catch(function () {
+        el.textContent = "";
+      });
+  })();
+</script>
