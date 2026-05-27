@@ -65,6 +65,15 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    define: {
+      "import.meta.env.PUBLIC_COMMIT_ID": JSON.stringify(
+        process.env.COMMIT_ID ||
+          (await import("child_process"))
+            .execSync("git rev-parse --short HEAD")
+            .toString()
+            .trim()
+      ),
+    },
   },
   fonts: [
     {
