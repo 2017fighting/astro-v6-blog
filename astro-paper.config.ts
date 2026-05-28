@@ -24,7 +24,7 @@ export default defineAstroPaperConfig({
     showBackButton: true,
     editPost: {
       enabled: true,
-      url: "https://github.com/2017fighting/astro-v6-blog/edit/main/",
+      url: "https://app.pagescms.org/2017fighting/astro-v6-blog/main/collection/posts/edit/",
     },
     search: "pagefind",
   },
