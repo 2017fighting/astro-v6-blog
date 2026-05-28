@@ -25,8 +25,10 @@ const currentYear = new Date().getFullYear();
       <span>{t.footer.copyright} &#169; {currentYear}</span>
       <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
       <span>{t.footer.allRightsReserved}</span>
-      <span class="opacity-50 mx-2 hidden sm:inline">&middot;</span>
-      <span class="opacity-50 font-mono text-xs">{import.meta.env.PUBLIC_COMMIT_ID}</span>
+      <span class="mx-2 hidden opacity-50 sm:inline">&middot;</span>
+      <span class="font-mono text-xs opacity-50"
+        >{import.meta.env.PUBLIC_COMMIT_ID}</span
+      >
     </div>
   </div>
 </footer>
