@@ -19,7 +19,7 @@
     "clean:assets": "rm -rf dist/_astro",
     "clean:pagefind": "rm -rf dist/pagefind",
     "deploy": "wrangler deploy",
-    "release": "bun run build && bun run upload:assets && bun run clean:assets && bun run deploy"
+    "release": "bun run build && bun run upload:assets && bun run upload:pagefind && bun run clean:assets && bun run clean:pagefind && bun run deploy"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.6",
