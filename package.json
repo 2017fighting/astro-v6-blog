@@ -18,7 +18,7 @@
     "upload:pagefind": "rclone copy -v dist/pagefind r2:blog-assets/pagefind --fast-list --checksum --transfers 8",
     "clean:assets": "rm -rf dist/_astro",
     "clean:pagefind": "rm -rf dist/pagefind",
-    "deploy": "wrangler pages deploy",
+    "deploy": "wrangler deploy",
     "release": "bun run build && bun run upload:assets && bun run clean:assets && bun run deploy"
   },
   "dependencies": {

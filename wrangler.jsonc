@@ -2,5 +2,9 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "astro-paper",
   "compatibility_date": "2026-05-25",
-  "pages_build_output_dir": "./dist"
+  "assets": {
+    "directory": "./dist/",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  }
 }
