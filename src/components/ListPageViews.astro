@@ -1,0 +1,40 @@
+---
+---
+
+<script is:inline data-astro-rerun>
+  (function () {
+    var items = document.querySelectorAll("[data-path]");
+    if (!items.length) return;
+
+    var paths = [];
+    items.forEach(function (el) {
+      paths.push(el.dataset.path);
+    });
+
+    fetch(
+      "https://track.raenzo.com/api/page-views?paths=" +
+        encodeURIComponent(paths.join(","))
+    )
+      .then(function (r) {
+        return r.json();
+      })
+      .then(function (data) {
+        var locale = document.documentElement.lang || "zh-CN";
+        items.forEach(function (el) {
+          var info = data[el.dataset.path];
+          var views = (info && info.views) || 0;
+          var textEl = el.querySelector("[data-views-text]");
+          if (textEl) {
+            textEl.textContent =
+              locale === "zh-CN" ? views + " 次阅读" : views + " views";
+          }
+        });
+      })
+      .catch(function () {
+        items.forEach(function (el) {
+          var textEl = el.querySelector("[data-views-text]");
+          if (textEl) textEl.textContent = "";
+        });
+      });
+  })();
+</script>

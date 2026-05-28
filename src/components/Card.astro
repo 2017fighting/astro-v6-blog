@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { getPostUrl } from "@/utils/getPostPaths";
 import { slugifyStr } from "@/utils/slugify";
+import IconEye from "@/assets/icons/IconEye.svg";
 import Datetime from "./Datetime.astro";
 
 type Props = {
@@ -11,11 +12,12 @@ type Props = {
 const { variant: Heading = "h2", id, data, filePath } = Astro.props;
 
 const { title, description, ...props } = data;
+const postPath = getPostUrl(id, filePath, Astro.currentLocale);
 ---
 
-<li class="my-6">
+<li class="my-6" data-path={postPath}>
   <a
-    href={getPostUrl(id, filePath, Astro.currentLocale)}
+    href={postPath}
     class:list={[
       "text-accent inline-block font-serif text-lg font-medium",
       "decoration-dashed underline-offset-4 hover:underline",
@@ -26,6 +28,12 @@ const { title, description, ...props } = data;
       {title}
     </Heading>
   </a>
-  <Datetime {...props} />
+  <div class="flex items-center gap-x-3">
+    <Datetime {...props} />
+    <span class="text-muted-foreground flex items-center gap-1.5">
+      <IconEye class="inline-block size-6 min-w-5.5 scale-90" />
+      <span class="text-sm" data-views-text>—</span>
+    </span>
+  </div>
   <p>{description}</p>
 </li>
