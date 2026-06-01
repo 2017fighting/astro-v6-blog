@@ -7,8 +7,7 @@ import {
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import remarkToc from "remark-toc";
-import remarkCollapse from "remark-collapse";
+import { unified } from "@astrojs/markdown-remark";
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
@@ -47,14 +46,13 @@ export default defineConfig({
       type: "shiki",
       excludeLangs: ["mermaid"],
     },
-    rehypePlugins: [
-      rehypeUnwrapImages,
-      [rehypeMermaid, { className: "astro-code" }],
-    ],
-    remarkPlugins: [
-      // [remarkToc, { heading: "目录" }],
-      // [remarkCollapse, { test: "目录", summary: "点击展开" }],
-    ],
+    processor: unified({
+      remarkPlugins: [],
+      rehypePlugins: [
+        rehypeUnwrapImages,
+        [rehypeMermaid, { className: "astro-code" }],
+      ],
+    }),
     shikiConfig: {
       themes: { light: "catppuccin-latte", dark: "catppuccin-mocha" },
       defaultColor: false,
