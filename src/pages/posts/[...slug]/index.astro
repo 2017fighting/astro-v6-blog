@@ -302,4 +302,65 @@ const ogImage = ogImageUrl
       });
   }
   loadPageViews();
+
+  function setupTocHighlight() {
+    var tocLinks = document.querySelectorAll('details a[href^="#"]');
+    if (!tocLinks.length) return;
+
+    var headings = Array.from(
+      document.querySelectorAll("article h2, article h3, article h4")
+    ).filter(function (h) {
+      return h.id;
+    });
+
+    if (!headings.length) return;
+
+    var locked = false;
+
+    function setActive(id) {
+      tocLinks.forEach(function (l) {
+        l.classList.remove("toc-active");
+      });
+      document
+        .querySelectorAll('details a[href="#' + id + '"]')
+        .forEach(function (link) {
+          link.classList.add("toc-active");
+        });
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        if (locked) return;
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setActive(entry.target.getAttribute("id"));
+          }
+        });
+      },
+      { rootMargin: "-80px 0px -70% 0px" }
+    );
+
+    headings.forEach(function (h) {
+      observer.observe(h);
+    });
+
+    tocLinks.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        var id = link.getAttribute("href").slice(1);
+        var target = document.getElementById(id);
+        if (!target) return;
+
+        locked = true;
+        setActive(id);
+
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        setTimeout(function () {
+          locked = false;
+        }, 800);
+      });
+    });
+  }
+  setupTocHighlight();
 </script>
