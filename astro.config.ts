@@ -52,8 +52,8 @@ export default defineConfig({
       [rehypeMermaid, { className: "astro-code" }],
     ],
     remarkPlugins: [
-      [remarkToc, { heading: "目录" }],
-      [remarkCollapse, { test: "目录", summary: "点击展开" }],
+      // [remarkToc, { heading: "目录" }],
+      // [remarkCollapse, { test: "目录", summary: "点击展开" }],
     ],
     shikiConfig: {
       themes: { light: "catppuccin-latte", dark: "catppuccin-mocha" },

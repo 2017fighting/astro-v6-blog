@@ -1,0 +1,51 @@
+---
+import type { MarkdownHeading } from "astro";
+import { generateToc } from "@/utils/generateToc";
+import TOCHeading from "./TOCHeading.astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+  mobile?: boolean;
+  desktop?: boolean;
+}
+
+const { headings, mobile, desktop } = Astro.props;
+const toc = generateToc(headings);
+---
+
+{
+  toc.length > 0 && mobile && (
+    <details open class="mb-4 lg:hidden">
+      <summary class="hover:marker:text-accent cursor-pointer text-lg">
+        目录
+      </summary>
+      <nav class="ms-4">
+        <ol class="mt-4">
+          {toc.map(heading => (
+            <TOCHeading heading={heading} />
+          ))}
+        </ol>
+      </nav>
+    </details>
+  )
+}
+
+{
+  toc.length > 0 && desktop && (
+    <details
+      open
+      class="hidden lg:sticky lg:top-12 lg:-me-60 lg:block lg:w-56 lg:shrink-0 lg:self-start"
+    >
+      <summary class="hover:marker:text-accent cursor-pointer text-lg">
+        目录
+      </summary>
+      <nav class="ms-4">
+        <ol class="mt-4">
+          {toc.map(heading => (
+            <TOCHeading heading={heading} />
+          ))}
+        </ol>
+      </nav>
+    </details>
+  )
+}
