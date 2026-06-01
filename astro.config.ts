@@ -17,6 +17,7 @@ import {
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import config from "./astro-paper.config";
 import { rehypeMermaid } from "./src/utils/rehype/beautiful-mermaid";
+import rehypeUnwrapImages from "rehype-unwrap-images";
 
 import react from "@astrojs/react";
 
@@ -46,7 +47,10 @@ export default defineConfig({
       type: "shiki",
       excludeLangs: ["mermaid"],
     },
-    rehypePlugins: [[rehypeMermaid, { className: "astro-code" }]],
+    rehypePlugins: [
+      rehypeUnwrapImages,
+      [rehypeMermaid, { className: "astro-code" }],
+    ],
     remarkPlugins: [
       [remarkToc, { heading: "目录" }],
       [remarkCollapse, { test: "目录", summary: "点击展开" }],

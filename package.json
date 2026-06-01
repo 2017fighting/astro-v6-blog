@@ -38,6 +38,7 @@
     "lodash.kebabcase": "^4.1.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
+    "rehype-unwrap-images": "^1.0.0",
     "remark-collapse": "^0.1.2",
     "remark-toc": "^9.0.0",
     "satori": "^0.26.0",
